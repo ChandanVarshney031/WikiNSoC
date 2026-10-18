@@ -1,0 +1,35 @@
+{
+  "guide-to-open-source": {
+    "author": "Aman",
+    "githubUsername": "DYHARDx",
+    "labels": [
+      "start-exploring",
+      "contributing-to-the-wiki",
+      "open-source"
+    ],
+    "updatedAt": "2026-10-18T10:45:00.000Z"
+  },
+  "modern-web-development-2026": {
+    "author": "Aman Singh",
+    "githubUsername": "dyhardx",
+    "labels": [
+      "start-exploring",
+      "trending-topics",
+      "featured-articles",
+      "tools",
+      "technology"
+    ],
+    "updatedAt": "2026-10-18T10:45:00.000Z"
+  },
+  "nsoc-announcement": {
+    "author": "NSoC Official",
+    "githubUsername": "DYHARDx",
+    "labels": [
+      "featured-articles",
+      "knowledge-for-everyone",
+      "open-source",
+      "community"
+    ],
+    "updatedAt": "2026-10-18T10:45:00.000Z"
+  }
+}
