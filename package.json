@@ -1,0 +1,18 @@
+{
+  "name": "wikinsoc",
+  "version": "1.0.0",
+  "description": "Content and community documentation repository for NSoC Wiki (wiki.nsoc.in)",
+  "scripts": {
+    "validate": "node scripts/validate-posts.js",
+    "sync:contributors": "node scripts/sync-contributors.js",
+    "review": "node scripts/ai-pr-review.js"
+  },
+  "keywords": [
+    "nsoc",
+    "wiki",
+    "documentation",
+    "open-source"
+  ],
+  "author": "Nexus Spring of Code Community",
+  "license": "MIT"
+}

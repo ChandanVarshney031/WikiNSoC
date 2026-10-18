@@ -1,0 +1,97 @@
+name: AI Article Review (Gemini)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'posts/**/*.mdx'
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  ai-review:
+    name: Gemini 1.5 Flash Content Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Get Changed MDX Files
+        id: changed-files
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+
+            const mdxFiles = files
+              .map(f => f.filename)
+              .filter(f => f.startsWith('posts/') && f.endsWith('.mdx'));
+
+            core.setOutput('files', mdxFiles.join(' '));
+
+      - name: Run Gemini AI Review
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "${{ steps.changed-files.outputs.files }}" ]; then
+            node scripts/ai-pr-review.js ${{ steps.changed-files.outputs.files }}
+          else
+            echo "No posts/*.mdx files were modified."
+          fi
+
+      - name: Post or Update PR Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const reportPath = path.join(process.cwd(), 'pr-review-output.md');
+
+            if (!fs.existsSync(reportPath)) {
+              console.log('No review report generated.');
+              return;
+            }
+
+            const body = fs.readFileSync(reportPath, 'utf8');
+            const prNumber = context.payload.pull_request.number;
+
+            // Find existing bot review comment if already posted
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber
+            });
+
+            const botComment = comments.find(c => c.body && c.body.includes('<!-- nsoc-ai-pr-reviewer -->'));
+
+            if (botComment) {
+              console.log(`Updating existing review comment (ID: ${botComment.id})...`);
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              console.log('Creating new review comment...');
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: body
+              });
+            }

@@ -1,4 +1,20 @@
 {
-  "updatedAt": "2026-08-24T00:00:00Z",
-  "contributors": []
+  "updatedAt": "2026-10-18T07:14:26.133Z",
+  "totalContributors": 1,
+  "contributors": [
+    {
+      "username": "DYHARDx",
+      "name": "Aman",
+      "avatarUrl": "https://github.com/DYHARDx.png",
+      "profileUrl": "https://github.com/DYHARDx",
+      "posts": [
+        "guide-to-open-source",
+        "modern-web-development-2026",
+        "nsoc-announcement"
+      ],
+      "firstContribution": "2026-10-18T10:45:00.000Z",
+      "lastContribution": "2026-10-18T10:45:00.000Z",
+      "postCount": 3
+    }
+  ]
 }

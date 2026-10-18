@@ -99,9 +99,12 @@ jobs:
 
             fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
 
-      - name: Commit and Push Metadata
+      - name: Sync Contributors JSON
+        run: node scripts/sync-contributors.js
+
+      - name: Commit and Push Metadata & Contributors
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add posts-metadata.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync post metadata from PR #${{ github.event.pull_request.number }} [skip ci]" && git push)
+          git add posts-metadata.json contributors.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync post metadata & contributors from PR #${{ github.event.pull_request.number }} [skip ci]" && git push)

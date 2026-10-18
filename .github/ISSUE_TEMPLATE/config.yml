@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Community Real-time Discussion
+    url: https://wiki.nsoc.in/talk
+    about: Ask questions, share ideas, and chat with contributors on the official NSoC Wiki talk page.
+  - name: 📖 NSoC Wiki Help & FAQ
+    url: https://wiki.nsoc.in/help
+    about: Read answers to frequently asked questions about editing and using the wiki.

@@ -1,0 +1,61 @@
+name: 🐛 Report an Issue or Correction
+description: Report a typo, factual inaccuracy, broken code example, or dead link in an article.
+title: "[Correction]: "
+labels: ["bug", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Found an error or typo in a wiki article?
+        Thank you for helping us keep NSoC Wiki accurate and up-to-date!
+
+  - type: input
+    id: article-url
+    attributes:
+      label: Article URL or Slug
+      description: Which article contains the issue?
+      placeholder: "e.g., https://wiki.nsoc.in/wiki/guide-to-open-source or guide-to-open-source.mdx"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What kind of issue did you discover?
+      options:
+        - "Typo / Grammar error"
+        - "Broken / Dead Link"
+        - "Factual Inaccuracy"
+        - "Broken Code Snippet / Command"
+        - "Outdated Information"
+        - "Formatting / Rendering Issue"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Description of the Problem
+      description: Explain what is incorrect or broken in the article.
+      placeholder: "In section 'Finding the Right Project', the link to package.json docs returns a 404 error."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-fix
+    attributes:
+      label: Suggested Fix or Correction
+      description: How should this be corrected?
+      placeholder: "Update the link URL to https://docs.npmjs.com/... or change the wording to..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: submit-pr
+    attributes:
+      label: PR Submission
+      options:
+        - label: "I am interested in submitting a pull request to fix this myself."
+          required: false

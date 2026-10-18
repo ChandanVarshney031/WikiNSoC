@@ -1,0 +1,71 @@
+name: 📝 Propose a New Wiki Article
+description: Suggest or propose a new technical guide, tutorial, or documentation page.
+title: "[Proposal]: "
+labels: ["enhancement", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for proposing an article for NSoC Wiki!
+        Please fill out the details below to help maintainers and the community review your proposal.
+
+  - type: input
+    id: article-title
+    attributes:
+      label: Proposed Article Title
+      description: What will the title/topic of this article be?
+      placeholder: "e.g., Understanding Docker Container Networking"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Primary Category
+      description: Which category does this article belong to?
+      options:
+        - "Open Source"
+        - "Web Development"
+        - "Cyber Security"
+        - "Technology"
+        - "Tools & DevOps"
+        - "Tutorials"
+        - "Community"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: outline
+    attributes:
+      label: Article Summary & Outline
+      description: Provide a brief summary and outline of the main sections you plan to cover.
+      placeholder: |
+        - Introduction to the topic
+        - Why it matters
+        - Step-by-step tutorial / code walkthrough
+        - Best practices & common pitfalls
+        - Conclusion & next steps
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Target Audience
+      description: Who will benefit most from reading this article?
+      options:
+        - "Beginner (No prior experience needed)"
+        - "Intermediate (Familiar with core concepts)"
+        - "Advanced (Deep dive into complex topics)"
+        - "All Developer Levels"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: willingness
+    attributes:
+      label: Authorship
+      options:
+        - label: "I would like to write and submit this article myself as a pull request."
+          required: false

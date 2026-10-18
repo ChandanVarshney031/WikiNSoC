@@ -1,35 +1,29 @@
-name: Validate Blog MDX
+name: Validate Wiki MDX
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'posts/**/*.mdx'
+      - 'scripts/**'
   pull_request:
     paths:
       - 'posts/**/*.mdx'
+      - 'scripts/**'
 
 jobs:
-  validate:
+  validate-posts:
+    name: Validate MDX Posts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install -g gray-matter-cli
-
-      - name: Validate Frontmatter
-        run: |
-          for file in posts/*.mdx; do
-            if [ -f "$file" ]; then
-              echo "Validating $file..."
-              # Basic checks for frontmatter fields (author, githubUsername, and labels are auto-assigned via GitHub PR)
-              grep -q "title:" "$file" || { echo "Missing title in $file"; exit 1; }
-              grep -q "description:" "$file" || { echo "Missing description in $file"; exit 1; }
-              grep -q "date:" "$file" || { echo "Missing date in $file"; exit 1; }
-              grep -q "category:" "$file" || { echo "Missing category in $file"; exit 1; }
-            fi
-          done
-        shell: bash
+      - name: Run Post Validator
+        run: node scripts/validate-posts.js
