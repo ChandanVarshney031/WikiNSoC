@@ -1,26 +1,4 @@
 {
-  "guide-to-open-source": {
-    "author": "Aman",
-    "githubUsername": "DYHARDx",
-    "labels": [
-      "start-exploring",
-      "contributing-to-the-wiki",
-      "open-source"
-    ],
-    "updatedAt": "2026-10-18T10:45:00.000Z"
-  },
-  "modern-web-development-2026": {
-    "author": "Aman Singh",
-    "githubUsername": "dyhardx",
-    "labels": [
-      "start-exploring",
-      "trending-topics",
-      "featured-articles",
-      "tools",
-      "technology"
-    ],
-    "updatedAt": "2026-10-18T10:45:00.000Z"
-  },
   "nsoc-announcement": {
     "author": "NSoC Official",
     "githubUsername": "DYHARDx",
@@ -31,5 +9,27 @@
       "community"
     ],
     "updatedAt": "2026-10-18T10:45:00.000Z"
+  },
+  "what-is-nexus-spring-of-code": {
+    "author": "Aman Singh",
+    "githubUsername": "DYHARDx",
+    "labels": [
+      "featured-articles",
+      "start-exploring",
+      "open-source",
+      "knowledge-for-everyone"
+    ],
+    "updatedAt": "2026-10-18T15:20:00.000Z"
+  },
+  "nexus-spring-of-code-2027": {
+    "author": "NSoC Official",
+    "githubUsername": "DYHARDx",
+    "labels": [
+      "featured-articles",
+      "trending-topics",
+      "open-source",
+      "community"
+    ],
+    "updatedAt": "2026-10-18T15:25:00.000Z"
   }
 }

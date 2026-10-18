@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-10-18T07:14:26.133Z",
+  "updatedAt": "2026-10-18T09:56:55.101Z",
   "totalContributors": 1,
   "contributors": [
     {
       "username": "DYHARDx",
-      "name": "Aman",
+      "name": "NSoC Official",
       "avatarUrl": "https://github.com/DYHARDx.png",
       "profileUrl": "https://github.com/DYHARDx",
       "posts": [
-        "guide-to-open-source",
-        "modern-web-development-2026",
-        "nsoc-announcement"
+        "nexus-spring-of-code-2027",
+        "nsoc-announcement",
+        "what-is-nexus-spring-of-code"
       ],
       "firstContribution": "2026-10-18T10:45:00.000Z",
-      "lastContribution": "2026-10-18T10:45:00.000Z",
+      "lastContribution": "2026-10-18T15:25:00.000Z",
       "postCount": 3
     }
   ]
