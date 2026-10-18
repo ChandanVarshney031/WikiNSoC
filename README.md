@@ -1,4 +1,4 @@
-# 📖 WikiNSoC — Official Content Hub for NSoC Wiki
+# 📖 WikiNSoC - Official Content Hub for NSoC Wiki
 
 <p align="center">
   <a href="https://wiki.nsoc.in">

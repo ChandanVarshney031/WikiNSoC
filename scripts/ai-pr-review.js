@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * NSoC Wiki — Gemini AI PR Reviewer
+ * NSoC Wiki - Gemini AI PR Reviewer
  * Analyzes pull request articles for:
  * 1. Executive Summary (what it teaches)
  * 2. Self-promotion and author credits check
@@ -144,10 +144,10 @@ Keep your response completely objective, fair, and formatted in clean GitHub Mar
   const data = await response.json();
   const reviewText =
     data.candidates &&
-    data.candidates[0] &&
-    data.candidates[0].content &&
-    data.candidates[0].content.parts &&
-    data.candidates[0].content.parts[0]
+      data.candidates[0] &&
+      data.candidates[0].content &&
+      data.candidates[0].content.parts &&
+      data.candidates[0].content.parts[0]
       ? data.candidates[0].content.parts[0].text
       : 'No review output generated.';
 
@@ -179,7 +179,7 @@ async function main() {
     console.warn('To enable AI PR reviews, set GEMINI_API_KEY or add it to repository secrets.');
 
     const placeholderReport = `<!-- nsoc-ai-pr-reviewer -->
-## 🤖 NSoC Wiki — Automated Article Review
+## 🤖 NSoC Wiki - Automated Article Review
 
 > [!NOTE]
 > **Gemini AI Review Skipped**: The \`GEMINI_API_KEY\` secret is not yet configured in this repository. Maintainers can add this secret in Repository Settings > Secrets to enable automated content audits.
@@ -188,11 +188,11 @@ async function main() {
     process.exit(0);
   }
 
-  console.log(`\n🤖 NSoC Wiki — Gemini AI PR Reviewer`);
+  console.log(`\n🤖 NSoC Wiki - Gemini AI PR Reviewer`);
   console.log(`Analyzing ${targetFiles.length} file(s) with Gemini 1.5 Flash...\n`);
 
   const existingTopics = getExistingTopics(rootDir, targetFiles.map((f) => path.resolve(rootDir, f)));
-  let fullReport = `<!-- nsoc-ai-pr-reviewer -->\n## 🤖 NSoC Wiki — AI Article Review Report\n\n*Automated review powered by **Google Gemini 1.5 Flash** for community transparency and quality assurance.*\n\n---\n\n`;
+  let fullReport = `<!-- nsoc-ai-pr-reviewer -->\n## 🤖 NSoC Wiki - AI Article Review Report\n\n*Automated review powered by **Google Gemini 1.5 Flash** for community transparency and quality assurance.*\n\n---\n\n`;
 
   for (const relFile of targetFiles) {
     const absPath = path.resolve(rootDir, relFile);

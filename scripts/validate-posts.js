@@ -79,12 +79,12 @@ function parseFrontmatter(fileContent) {
         const inner = value.slice(1, -1).trim();
         frontmatter[key] = inner
           ? inner.split(',').map((item) => {
-              let s = item.trim();
-              if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
-                s = s.slice(1, -1);
-              }
-              return s;
-            })
+            let s = item.trim();
+            if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
+              s = s.slice(1, -1);
+            }
+            return s;
+          })
           : [];
         continue;
       }
@@ -221,7 +221,7 @@ function validatePostFile(filePath) {
 // Main execution
 function main() {
   console.log(`\n${colors.bold}${colors.cyan}========================================${colors.reset}`);
-  console.log(`${colors.bold}${colors.cyan}    NSoC Wiki — Post MDX Validator      ${colors.reset}`);
+  console.log(`${colors.bold}${colors.cyan}    NSoC Wiki - Post MDX Validator      ${colors.reset}`);
   console.log(`${colors.bold}${colors.cyan}========================================${colors.reset}\n`);
 
   const rootDir = path.resolve(__dirname, '..');
